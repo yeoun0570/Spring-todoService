@@ -1,7 +1,9 @@
 package com.ssg.springtodoservice.mapper;
 
-import org.apache.ibatis.annotations.Select;
+import com.ssg.springtodoservice.domain.TodoVO;
 
 public interface TodoMapper {
     String getTime();
+
+    void insert(TodoVO todoVO);
 }

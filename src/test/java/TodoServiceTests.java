@@ -1,6 +1,6 @@
 import com.ssg.springtodoservice.domain.TodoVO;
 import com.ssg.springtodoservice.dto.TodoDTO;
-import com.ssg.springtodoservice.mapper.TodoMapper;
+import com.ssg.springtodoservice.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,24 +13,18 @@ import java.time.LocalDate;
 @Log4j2
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/root-context.xml")
-public class TodoMapperTests {
+public class TodoServiceTests {
 
     @Autowired(required = false)
-    private TodoMapper todoMapper;
+    private TodoService todoService;
 
     @Test
-    public void testGetTime() {
-        log.info(todoMapper.getTime());
-    }
-
-    @Test
-    public void testInsert() {
-        TodoVO todoVO = TodoVO.builder()
-                .title("스프링 테스트")
+    public void testRegister(){
+        TodoDTO todoDTO = TodoDTO.builder()
+                .title("ModelMapper 테스트")
                 .dueDate(LocalDate.of(2024,9,12))
-                .writer("yeoun")
+                .writer("yeounTester")
                 .build();
-        todoMapper.insert(todoVO);
+        todoService.register(todoDTO);
     }
-
 }
