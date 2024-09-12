@@ -27,5 +27,7 @@
         <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>
     </bean>
 
+    <context:component-scan base-package="com.ssg.springtodoservice.config"></context:component-scan>
+
 
 </beans>
