@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.naming.Binding;
 import javax.validation.Valid;
 import java.time.LocalDate;
 
@@ -69,9 +70,16 @@ public class TodoController {
     }
 
     @PostMapping("/modify")
-    public String modify(TodoDTO todoDTO, RedirectAttributes redirectAttributes) {
-        log.info("modify...");
+    public String modify(TodoDTO todoDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
+        if(bindingResult.hasErrors()){
+            log.info("has error...");
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            redirectAttributes.addAttribute("tno", todoDTO.getTno());
+            return "redirect:/todo/list";
+        }
+
+        log.info("todoDTO : " + todoDTO);
         todoService.modify(todoDTO);
 
         return "redirect:/todo/list";
