@@ -1,6 +1,7 @@
 import com.ssg.springtodoservice.domain.TodoVO;
 import com.ssg.springtodoservice.dto.TodoDTO;
 import com.ssg.springtodoservice.mapper.TodoMapper;
+import com.sun.tools.javac.comp.Todo;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,8 +28,8 @@ public class TodoMapperTests {
     @Test
     public void testInsert() {
         TodoVO todoVO = TodoVO.builder()
-                .title("스프링 테스트")
-                .dueDate(LocalDate.of(2024,9,12))
+                .title("테스트2")
+                .dueDate(LocalDate.of(2024,9,15))
                 .writer("yeoun")
                 .build();
         todoMapper.insert(todoVO);
@@ -40,4 +41,9 @@ public class TodoMapperTests {
         voList.forEach(vo->log.info(vo));
     }
 
+    @Test
+    public void testSelectOne() {
+        TodoVO todoVO = todoMapper.selectOne(3L);
+        log.info(todoVO);
+    }
 }

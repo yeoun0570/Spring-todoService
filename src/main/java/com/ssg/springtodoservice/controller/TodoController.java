@@ -44,7 +44,15 @@ public class TodoController {
             redirectAttributes.addFlashAttribute("error",bindingResult.getAllErrors());
             return "redirect:/todo/register";
         }
+        todoService.register(todoDTO);
 
         return "redirect:/todo/list";
+    }
+
+    @GetMapping("/read")
+    public void read(Long tno, Model model) {
+        TodoDTO todoDTO = todoService.getOne(tno);
+        log.info(todoDTO);
+        model.addAttribute("dto",todoDTO);
     }
 }
