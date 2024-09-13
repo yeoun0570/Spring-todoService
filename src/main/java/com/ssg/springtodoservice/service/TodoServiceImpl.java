@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,5 +43,18 @@ public class TodoServiceImpl implements TodoService{
         TodoDTO dto = modelMapper.map(todoVO,TodoDTO.class);
         log.info(dto);
         return dto;
+    }
+
+    @Override
+    public void remove(Long tno) {
+        todoMapper.delete(tno);
+    }
+
+    @Override
+    public void modify(TodoDTO todoDTO) {
+        log.info(modelMapper);
+        TodoVO todoVO = modelMapper.map(todoDTO, TodoVO.class);
+        log.info(todoVO);
+        todoMapper.update(todoVO);
     }
 }
