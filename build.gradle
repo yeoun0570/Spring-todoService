@@ -51,6 +51,10 @@ dependencies {
 
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.1'
 
+
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.2.0.Final'
+
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

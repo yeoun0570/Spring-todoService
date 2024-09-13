@@ -32,5 +32,6 @@
 
     <mybatis:scan base-package="com.ssg.springtodoservice.mapper"></mybatis:scan>
 
+    <context:component-scan base-package="com.ssg.springtodoservice.service"></context:component-scan>
 
 </beans>

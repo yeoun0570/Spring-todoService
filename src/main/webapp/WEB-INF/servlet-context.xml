@@ -29,7 +29,7 @@
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="formatters">
             <set>
-
+                <bean class="com.ssg.springtodoservice.controller.formatter.LocalDateFormatter"/>
             </set>
         </property>
     </bean>
