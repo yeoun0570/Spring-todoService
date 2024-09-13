@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Read</title>
+    <title>Hello, world!</title>
 </head>
 <body>
 
@@ -94,7 +94,7 @@
 
                             document.querySelector(".btn-primary").addEventListener("click", function(e){
 
-                                self.location = "/todo/modify?tno="+${dto.tno}
+                                self.location = `/todo/modify?tno=${dto.tno}&${pageRequestDTO.link}`
 
                             },false)
 
@@ -107,7 +107,7 @@
                             //목록 페이지로 이동하는 이벤트 처리
                             document.querySelector(".btn-secondary").addEventListener("click", function(e){
 
-                                self.location = "/todo/list";
+                                self.location = "/todo/list?${pageRequestDTO.link}";
 
                             },false)
 

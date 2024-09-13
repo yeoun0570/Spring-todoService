@@ -10,11 +10,11 @@
         <logger name="org.springframework" level="INFO" additivity="false">
             <appender-ref ref="console" />
         </logger>
-        <logger name="com.ssg" level="INFO" additivity="false">
-            <appender-ref ref="console" />
-        </logger>
-        <root level="INFO" additivity="false">
-            <AppenderRef ref="console"/>
-        </root>
-    </loggers>
-</configuration>
+        <logger name="com.ssg" level="TRACE" additivity="false">
+        <appender-ref ref="console" />
+    </logger>
+    <root level="INFO" additivity="false">
+        <AppenderRef ref="console"/>
+    </root>
+</loggers>
+        </configuration>
